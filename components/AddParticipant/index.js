@@ -56,6 +56,6 @@ const styles = StyleSheet.create({
     margin: 5,
     paddingLeft: 5
   }
-})
+});
 
 export default AddParticipant;
