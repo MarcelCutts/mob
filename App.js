@@ -1,12 +1,27 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
+import ParticipantList from './components/ParticipantList';
+import AddParticipant from './components/AddParticipant';
+
 export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      participants: []
+    };
+  };
+
+  addParticipant = participantName => {
+    const updatedParticipants = [...this.state.participants, participantName];
+    this.setState({participants: updatedParticipants});
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.header}>Mob!</Text>
-        <Text>The mob programming application</Text>
+        <AddParticipant addParticipant={this.addParticipant} style={styles.addParticipant}/>
+        <Text style={styles.participantList}>{this.state.participants.join(' ')}</Text>
       </View>
     );
   }
@@ -14,12 +29,10 @@ export default class App extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
+    marginTop: 20,
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
-  },
-  header: {
-    fontSize: 24,
+    justifyContent: 'flex-start',
   }
 });
