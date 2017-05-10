@@ -1,9 +1,9 @@
 import React from 'react';
 import { TouchableHighlight, Text, StyleSheet } from 'react-native';
 
-const ToggleMob = ({ isMobbing }) => (
-  <TouchableHighlight style={styles.container}>
-    <Text style={styles.button}>Begin Mob!</Text>
+const ToggleMob = ({isMobbing, toggleMob}) => (
+  <TouchableHighlight style={styles.container} onPress={toggleMob}>
+    <Text style={styles.button}>{isMobbing ? "End Mob!" : "Being Mob!"}</Text>
   </TouchableHighlight>
 );
 

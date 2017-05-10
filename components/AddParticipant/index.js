@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     height: 40,
-    margin: 5
+    margin: 5,
   },
   button: {
     flex: 1,

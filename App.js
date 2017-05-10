@@ -19,8 +19,8 @@ export default class App extends React.Component {
     this.setState({participants: updatedParticipants});
   }
 
-  toggleIsMobbing = () => {
-    this.setState({ isMobbing: !isMobbing })
+  toggleMob = e => {
+    this.setState({ isMobbing: !this.state.isMobbing })
   };
 
   render() {
@@ -28,13 +28,16 @@ export default class App extends React.Component {
       <View style={styles.container}>
         {
           this.state.isMobbing ?
-          <RubMob /> :
+          <RunMob /> :
           <SetupMob
             participants={this.state.participants}
             addParticipant={this.addParticipant}
           />
         }
-        <ToggleMob isMobbing={this.state.isMobbing} />
+        <ToggleMob
+          isMobbing={this.state.isMobbing}
+          toggleMob={this.toggleMob}
+        />
       </View>
     );
   }
@@ -45,11 +48,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
   },
-  mobButton: {
-    flex: 1,
-    backgroundColor: 'purple',
+  button: {
   }
 });
