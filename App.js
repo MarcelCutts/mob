@@ -1,15 +1,16 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-import ParticipantList from './components/ParticipantList';
-import AddParticipant from './components/AddParticipant';
-import BeginMob from './components/BeginMob';
+import ToggleMob from './components/ToggleMob';
+import SetupMob from './components/SetupMob';
+import RunMob from './components/RunMob';
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      participants: []
+      participants: [],
+      isMobbing: false
     };
   };
 
@@ -18,12 +19,22 @@ export default class App extends React.Component {
     this.setState({participants: updatedParticipants});
   }
 
+  toggleIsMobbing = () => {
+    this.setState({ isMobbing: !isMobbing })
+  };
+
   render() {
     return (
       <View style={styles.container}>
-        <AddParticipant addParticipant={this.addParticipant}/>
-        <Text style={{flex: 6}}>{this.state.participants.join(' ')}</Text>
-        <BeginMob />
+        {
+          this.state.isMobbing ?
+          <RubMob /> :
+          <SetupMob
+            participants={this.state.participants}
+            addParticipant={this.addParticipant}
+          />
+        }
+        <ToggleMob isMobbing={this.state.isMobbing} />
       </View>
     );
   }
