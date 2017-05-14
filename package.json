@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "babel-eslint": "6",
+    "eslint": "^3.19.0",
+    "eslint-plugin-react": "^7.0.1",
+    "eslint-plugin-react-native": "^2.3.2",
     "flow-bin": "0.38.0",
     "jest-expo": "^0.3.0",
     "react-native-scripts": "0.0.26",
