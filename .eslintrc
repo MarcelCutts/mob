@@ -1,13 +1,15 @@
 {
-  "plugins": [
-    "react",
-    "react-native"
-  ],
-  "extends": [
-    "eslint:recommended"
-  ],
-  "parser": "babel-eslint",
-  "rules": {
-    "strict": 0
-  }
+    "parser": "babel-eslint",
+    "env": {
+        "browser": true
+    },
+    "plugins": [
+        "react",
+        "react-native"
+    ],
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:react-native/recommended"
+    ]
 }
